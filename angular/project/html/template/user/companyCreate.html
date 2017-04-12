@@ -1,0 +1,202 @@
+<div class="cmp-create" ng-controller="CompanyCreateController">
+	
+	<div class="cmp-create-fir">
+		<div class="row">
+			<h4>企业入驻</h4>
+		</div>
+		<div class="row">
+			<p>立刻入驻：发布资讯，发布产品，发起测评、投融资需求..</p>
+		</div>
+		<div class="row">
+			<div class="cmp-create-register">
+				<div class="form-group form-group-sm">
+					<div class="row">
+						
+    					<label class="col-xs-4 control-label" for="username">用户名：</label>
+    					<div class="col-xs-8">
+     				 		<input class="form-control" type="text" id="username" placeholder="" ng-model="company.name">
+    					</div>
+ 					</div>
+ 				</div>
+				<div class="form-group form-group-sm">
+					<div class="row">
+    					<label class="col-xs-4 control-label" for="password">密码：</label>
+    					<div class="col-xs-8">
+     				 		<input class="form-control" type="text" id="password" placeholder="" ng-model="company.password">
+    					</div>
+ 					</div>
+ 				</div>
+ 				<div class="form-group form-group-sm">
+ 					<div class="row">
+    					<label class="col-xs-4 control-label" for="rpassword">重复密码：</label>
+    					<div class="col-xs-8">
+     				 		<input class="form-control" type="text" id="rpassword" placeholder="" ng-model="certificate.repass">
+    					</div>
+ 					</div>
+ 				</div>
+			</div>
+			<div class="cmp-create-register">
+				<div class="row">
+					<div class="form-group form-group-sm">
+						
+    					<label class="col-xs-3 control-label" for="rpostion">注册人职位：</label>
+    					<div class="col-xs-8">
+     				 		<input class="form-control" type="text" id="rpostion" placeholder="" ng-model="company.position">
+    					</div>
+    					
+ 					</div>
+ 				</div>
+ 				<div class="row">
+ 					<div class="form-group form-group-sm">
+    					<label class="col-xs-3 control-label" for="rinfo">审核认证信息</label>
+    					<div class="col-xs-8">
+     				 		<input class="form-control" type="file" id="rinfo" placeholder="" ngf-select="uploadCertificate($file)">
+     				 		<label>企业营业支招或相关证明，仅提供认证使用，平台不会暴露您的个人信息</label>
+    					</div>
+ 					</div>
+ 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cmp-create-sec">
+		<div class="row">
+			<h5>基本信息</h5>
+		</div>
+		<div class="cmp-create-intro">
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">公司名称：</label>
+    			<div class="col-xs-10">
+     				<input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.longName">
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpintro">业务简述：</label>
+    			<div class="col-xs-10"> 
+     				<input class="form-control" type="text" id="cmpintro" placeholder="" ng-model="company.shortName">
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">所属领域：</label>
+    			<div class="col-xs-10">
+    				<div class="cmp-create-prov">
+    				<div class="col-xs-4">
+     					<select class="form-control" type="text" ng-model="cmptype" ng-options="ctype.name for ctype in ctypeList"/>
+     				</div>
+     				<div class="col-xs-1"></div>
+     				<label class="col-xs-2">联系方式</label>
+     				<div class="col-xs-4">
+     					<input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.phone">
+     				</div>
+     				<!-- <div class="col-xs-"></div> -->
+     				</div>
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">公司地址：</label>
+    			<div class="col-xs-10">
+     				<div class="cmp-create-prov">
+     				<div class="col-xs-4">
+     					<select class="form-control" type="text" ng-model="provience" ng-options="prov.name for prov in provList"/>
+     				</div>
+     				<label class="col-xs-1">省</label>
+     				<div class="col-xs-4">
+     					<select class="form-control" type="text" ng-model="company.address" ng-options="city.name for city in cityList"/>
+     				</div>
+     				<label class="col-xs-1">市</label>
+     				</div>
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">详细地址：</label>
+    			<div class="col-xs-10">
+     				<input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.field">
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">法人代表：</label>
+    			<div class="col-xs-10">
+    				<div class="cmp-create-pres">
+    				<div class="col-xs-4">
+     					<input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.legalEntity">
+     				</div>
+     				<div class="col-xs-1"></div>
+     				<label class="col-xs-2">注册资本：</label>
+     				<div class="col-xs-4">
+     					<input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.regCapital">
+     				</div>
+     				<label class="col-xs-1">万</label>
+     				</div>
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpname">成立时间：</label>
+    			<div class="col-xs-10">
+    				<div class="cmp-create-start">
+    				<div class="col-xs-4">
+     					<!-- <input class="form-control" type="text" id="cmpname" placeholder="" ng-model="company.regTime"> -->
+                       
+                        <input type="text" class="form-control" id="form_datetime">
+     				</div>
+					<div class="col-xs-1"></div>
+     				<label class="col-xs-3">有无投融资需求：</label>
+     				<div class="checkbox col-xs-4">
+     					<input type="checkbox" ng-model="company.isNeedCapital">
+     				</div>
+     				</div>
+    			</div>
+    		</div>
+		</div>
+		
+
+		</div>
+		<div class="cmp-create-logo" ngf-select="uploadLogo($file)" ng-model="company.logo">
+			<img ngf-src="cmpLogo" alt="点击添加图片" >
+			<p ng-hide="cmpLogo">点击添加图片</p>
+		</div>
+	</div>
+	<div class="cmp-create-thi">
+		<div class="row">
+			<h5>公司介绍</h5>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpintro">公司简介：</label>
+    			<div class="col-xs-10">
+     				<textarea class="form-control" id="cmpintro" placeholder="" rows="4" ng-model="company.companyDesc"></textarea>
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmppro">产品与优势：</label>
+    			<div class="col-xs-10">
+     				<textarea class="form-control" id="cmppro" placeholder="" rows="5" ng-model="company.productDesc"></textarea>
+    			</div>
+    		</div>
+		</div>
+		<div class="row">
+			<div class="form-group form-group-sm">
+				<label class="col-xs-2 control-label" for="cmpuser">目标与用户：</label>
+    			<div class="col-xs-10">
+     				<textarea class="form-control" id="cmpuser" placeholder="" rows="7" ng-model="company.userDesc"></textarea>
+    			</div>
+    		</div>
+		</div>
+		<div class="row cmp-create-commit">
+			<button type="button" class="btn btn-danger btn-block btn-sm" ng-click="registerCompany()">立即入驻</button>
+		</div>
+	</div>
+</div>
