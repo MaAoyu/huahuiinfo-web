@@ -1,3 +1,3 @@
 # huahuiinfo-web
 
-the web application using Angular JS.
+a web application using Angular JS.
