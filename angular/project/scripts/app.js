@@ -1,4 +1,4 @@
-var app = angular.module('auto-biz-user', ['ngRoute','ui.grid',, 'ui.grid.resizeColumns', 'ui.grid.moveColumns','textAngular','bw.paging']);
+var app = angular.module('auto-biz-user', ['ngRoute']);
 
 app.config(function ($locationProvider,$httpProvider,$routeProvider) {
     console.log("载入angular config，跳转到index");
