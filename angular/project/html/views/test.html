@@ -1,5 +1,21 @@
 <div ng-controller="TestController">
-    <h2>新昌里签到系统test</h2>
+    <h4 align="center">新昌里签到系统1.0版本[todo...]</h4>
+    <p>总人数：{{totalP}}   已签到人数：{{nowP}}    签到率：{{nowP/totalP}}</p>
+
+    <table border="1" cellpadding="0" class="table table-striped table-hover">
+        <tr>
+            <th>姓名</th>
+            <th>签到</th>
+            <th>起了吗x</th>
+        </tr>
+        <tr ng-repeat="t1 in peopleDatas">
+            <td>{{t1.name}}</td>
+            <td>
+                <button ng-click="record(t1.id)" class="btn btn-primary btn-small">签到</button>
+            </td>
+            <td>{{t1.falg}}</td>
+        </tr>
+    </table>
     <!--<div id="container"></div>-->
     <!--<div class="gridStyle" ui-grid="gridOptions"></div>-->
     <!--<div ui-grid="gridOptions" class="gridStyle" ui-grid-resize-columns ui-grid-move-columns></div>-->
