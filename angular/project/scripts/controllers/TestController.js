@@ -19,7 +19,7 @@ function TestController($scope, $http, $location) {
           $scope.totalP = res.length;
           $scope.noPerson = '';
           for(let i =0;i++;i<res.length){
-            if(res[i].falg == '没有'){
+            if(res[i].flag == '没有'){
               $scope.noPerson = $scope.noPerson+res[i].name;
             }
           }
