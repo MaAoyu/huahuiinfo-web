@@ -1,5 +1,5 @@
-function TestController($scope, $http, $location) {
-  console.log("载入TestController");
+function xclController($scope, $http, $location) {
+  console.log("载入xclController");
   // $scope.peopleDatas = [{ name: "阿米娜", id: 1, falg: "没有" },
   // { name: "海录", id: 2, falg: "没有"  },
   // { name: "马玉梅", id: 3, falg: "没有"  },
