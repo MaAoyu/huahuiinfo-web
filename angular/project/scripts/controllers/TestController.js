@@ -12,7 +12,7 @@ function TestController($scope, $http, $location) {
   getRecordNum();
 
   function getAllRecord() {
-    $http.get('http://localhost:8081/test')
+    $http.get('http://106.14.37.7:8081/test')
       .success(function (res) {
           $scope.peopleDatas = res;
           $scope.totalP = res.length;
@@ -22,7 +22,7 @@ function TestController($scope, $http, $location) {
       });
   }
   function getRecordNum() {
-    $http.get('http://localhost:8081/getRecordNum')
+    $http.get('http://106.14.37.7:8081/getRecordNum')
       .success(function (res) {
           $scope.nowP = res[0]["count(*)"];
       })
@@ -32,7 +32,7 @@ function TestController($scope, $http, $location) {
   }
   $scope.record = function(name) {
     console.log("getdata....:"+name);
-    $http.get('http://localhost:8081/record?name='+name+'&flag=ok')
+    $http.get('http://106.14.37.7:8081/record?name='+name+'&flag=ok')
       .success(function (res) {
           //console.log(res);
           getAllRecord();
