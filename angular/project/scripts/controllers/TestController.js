@@ -9,8 +9,9 @@ function TestController($scope, $http, $location) {
   $scope.noPerson = '';
   $scope.totalP = 0;
   $scope.nowP = 0;
+  $scope.rail = 0;
   getAllRecord();
-  getRecordNum();
+  // getRecordNum();
 
   function getAllRecord() {
     $http.get('http://106.14.37.7:8081/test')
@@ -25,20 +26,21 @@ function TestController($scope, $http, $location) {
               $scope.noPerson = $scope.noPerson+res[i].name+'&';
             }
           }
+          $http.get('http://106.14.37.7:8081/getRecordNum')
+            .success(function (res) {
+              $scope.nowP = res[0]["count(*)"];
+              $scope.rail = Math.round($scope.nowP*100/$scope.totalP);
+          })
+            .error(function (res) {
+          });
       })
       .error(function (res) {
         alert("网络出错");
       });
   }
-  function getRecordNum() {
-    $http.get('http://106.14.37.7:8081/getRecordNum')
-      .success(function (res) {
-          $scope.nowP = res[0]["count(*)"];
-      })
-      .error(function (res) {
-        alert("网络出错");
-      });
-  }
+  // function getRecordNum() {
+    
+  // }
   //cookie
   function setCookie(name, value, timeout) {
     var d = new Date();
@@ -60,7 +62,7 @@ function TestController($scope, $http, $location) {
     //console.log("getdata....:"+name);
     var recordFlag = getCookie("isRecord");
     if (recordFlag) {
-      alert('今天已签到过。。');
+      alert('今日已签到过，请不要乱点哦！');
     }
     else{
       setCookie("isRecord", 1, 0.5);
@@ -68,7 +70,8 @@ function TestController($scope, $http, $location) {
       .success(function (res) {
           //console.log(res);
           getAllRecord();
-          getRecordNum();
+          // getRecordNum();
+          // $scope.rail = Math.round($scope.nowP*100/$scope.totalP);
       })
       .error(function (res) {
         alert("网络出错");
