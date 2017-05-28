@@ -6,6 +6,7 @@ function TestController($scope, $http, $location) {
   // { name: "马勇士", id: 4, falg: "没有"  },
   // { name: "马素珍", id: 5, falg: "没有"  }];
   $scope.peopleDatas = [];
+  $scope.noPerson = '';
   $scope.totalP = 0;
   $scope.nowP = 0;
   getAllRecord();
@@ -16,6 +17,12 @@ function TestController($scope, $http, $location) {
       .success(function (res) {
           $scope.peopleDatas = res;
           $scope.totalP = res.length;
+          $scope.noPerson = '';
+          for(let i =0;i++;i<res.length){
+            if(res[i].falg == '没有'){
+              $scope.noPerson = $scope.noPerson+res[i].name;
+            }
+          }
       })
       .error(function (res) {
         alert("网络出错");
