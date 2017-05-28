@@ -19,7 +19,7 @@ function tjController($scope, $http, $location) {
               $scope.noPerson = $scope.noPerson+res[i].name+'&';
             }
           }
-          $http.get('http://106.14.37.7:8081/getRecordNum')
+          $http.get('http://106.14.37.7:8081/getRecordNum2')
             .success(function (res) {
               $scope.nowP = res[0]["count(*)"];
               $scope.rail = Math.round($scope.nowP*100/$scope.totalP);
