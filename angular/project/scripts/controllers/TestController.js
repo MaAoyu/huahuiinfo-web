@@ -32,7 +32,7 @@ function TestController($scope, $http, $location) {
   }
   $scope.record = function(name) {
     console.log("getdata....:"+name);
-    $http.get('http://106.14.37.7:8081/record?name='+name+'&flag=ok')
+    $http.get('http://106.14.37.7:8081/record?name='+name)
       .success(function (res) {
           //console.log(res);
           getAllRecord();
