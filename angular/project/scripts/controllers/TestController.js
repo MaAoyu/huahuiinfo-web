@@ -1,12 +1,50 @@
 function TestController($scope, $http, $location) {
   console.log("载入TestController");
-  $scope.peopleDatas = [{ name: "阿米娜", id: 1, falg: "没有" },
-  { name: "海录", id: 2, falg: "没有"  },
-  { name: "马玉梅", id: 3, falg: "没有"  },
-  { name: "马勇士", id: 4, falg: "没有"  },
-  { name: "马素珍", id: 5, falg: "没有"  }];
-  $scope.totalP = $scope.peopleDatas.length;
+  // $scope.peopleDatas = [{ name: "阿米娜", id: 1, falg: "没有" },
+  // { name: "海录", id: 2, falg: "没有"  },
+  // { name: "马玉梅", id: 3, falg: "没有"  },
+  // { name: "马勇士", id: 4, falg: "没有"  },
+  // { name: "马素珍", id: 5, falg: "没有"  }];
+  $scope.peopleDatas = [];
+  $scope.totalP = 0;
   $scope.nowP = 0;
+  getAllRecord();
+  getRecordNum();
+
+  function getAllRecord() {
+    $http.get('http://localhost:8081/test')
+      .success(function (res) {
+          $scope.peopleDatas = res;
+          $scope.totalP = res.length;
+      })
+      .error(function (res) {
+        alert("网络出错");
+      });
+  }
+  function getRecordNum() {
+    $http.get('http://localhost:8081/getRecordNum')
+      .success(function (res) {
+          $scope.nowP = res[0]["count(*)"];
+      })
+      .error(function (res) {
+        alert("网络出错");
+      });
+  }
+  $scope.record = function(name) {
+    console.log("getdata....:"+name);
+    $http.get('http://localhost:8081/record?name='+name+'&flag=ok')
+      .success(function (res) {
+          //console.log(res);
+          getAllRecord();
+          getRecordNum();
+      })
+      .error(function (res) {
+        alert("网络出错");
+      });
+  }
+  
+
+
   // console.log($scope.peopleDatas[0].name);
   // $scope.gridOptions = {
   //   data: 'myData',
@@ -14,20 +52,7 @@ function TestController($scope, $http, $location) {
   //                { field: 'age', displayName: '年龄', width: 100}]
   // };
   // $scope.data = "xxx";
-  $scope.record = function(id) {
-    console.log("getdata....:"+id);
-    id = id - 1;
-    $scope.nowP = $scope.nowP + 1;
-    $scope.peopleDatas[id].falg = 'ok';
-    // $http.get('http://localhost:8081/')
-    //   .success(function (res) {
-    //       console.log(res);
-    //       $scope.data = res;
-    //   })
-    //   .error(function (res) {
-    //     alert("您好，您访问的内容出错");
-    //   });
-  }
+  
 
 
   // $scope.userName = "";
