@@ -18,9 +18,11 @@ function TestController($scope, $http, $location) {
           $scope.peopleDatas = res;
           $scope.totalP = res.length;
           $scope.noPerson = '';
-          for(let i =0;i++;i<res.length){
+          console.log(res.length);
+          for(var i =0;i<res.length;i++){
+            console.log('xx');
             if(res[i].flag == '没有'){
-              $scope.noPerson = $scope.noPerson+res[i].name;
+              $scope.noPerson = $scope.noPerson+res[i].name+'&';
             }
           }
       })
