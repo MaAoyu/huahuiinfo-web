@@ -39,9 +39,32 @@ function TestController($scope, $http, $location) {
         alert("网络出错");
       });
   }
+  //cookie
+  function setCookie(name, value, timeout) {
+    var d = new Date();
+    d.setDate(d.getDate() + timeout);
+    document.cookie = name + '=' + value + ';expires=' + d;
+  }
+  function getCookie(name) {
+    var arr = document.cookie.split('; ');
+    for (var i = 0; i < arr.length; i++) {
+      var arr2 = arr[i].split('='); //['abc','cba']  
+      if (arr2[0] == name) {
+        return arr2[1];
+      }
+    }
+    return '';
+  }
+
   $scope.record = function(name) {
-    console.log("getdata....:"+name);
-    $http.get('http://106.14.37.7:8081/record?name='+name)
+    //console.log("getdata....:"+name);
+    var recordFlag = getCookie("isRecord");
+    if (recordFlag) {
+      alert('今天已签到过。。');
+    }
+    else{
+      setCookie("isRecord", 1, 0.5);
+      $http.get('http://106.14.37.7:8081/record?name='+name)
       .success(function (res) {
           //console.log(res);
           getAllRecord();
@@ -50,6 +73,7 @@ function TestController($scope, $http, $location) {
       .error(function (res) {
         alert("网络出错");
       });
+    }
   }
   
 
