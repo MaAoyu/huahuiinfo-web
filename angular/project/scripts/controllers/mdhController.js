@@ -68,6 +68,8 @@ function mdhController($scope, $http) {
      $http.get('http://106.14.37.7:8081/addRecord3?name='+$scope.newName)
       .success(function (res) {
           alter('添加成功！');
+          $scope.newName = '';
+          getAllRecord();
       })
       .error(function (res) {
         alert("网络出错");
