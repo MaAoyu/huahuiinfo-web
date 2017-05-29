@@ -1,0 +1,35 @@
+<div ng-controller="mdhController">
+    <h4 align="center">闵大荒斋月签到系统</h4>
+    <p>总人数：{{totalP}}   已签到人数：{{nowP}}    签到率：{{rail}}%</p>
+    <p>未签到同学：{{noPerson}}</p>
+
+    <table border="1" cellpadding="0" class="table table-striped table-hover">
+        <tr>
+            <th>姓名</th>
+            <th>签到</th>
+            <th>起了吗</th>
+        </tr>
+        <tr ng-repeat="t1 in peopleDatas">
+            <td>{{t1.name}}</td>
+            <td>
+                <button ng-click="record(t1.name)" class="btn btn-primary btn-small">签到</button>
+            </td>
+            <td>{{t1.flag}}</td>
+        </tr>
+    </table>
+    添加用户：
+    <input ng-model="newName" type="text">
+    <button ng-click="add()" class="btn btn-primary btn-small">添加</button>
+    <font color="#FF0000"> 毫无疑问，打赏可以让新昌里技术中心变得更强！</font> 
+    </br>
+    <img src="/angular/project/html/template/pay.png" height="350" width="400"/>
+    <p>友情链接:</p>
+    <a href="http://www.hailanyue.com:8000/xcl">新昌里封斋饭评价系统</a>
+    </br>
+     <a href="http://www.hailanyue.com:8000/tj">看看同济的封斋签到怎么样</a>
+    </br>
+    <a href="http://www.hailanyue.com:8000/">看看上海人民的封斋签到情况</a>
+    </br>
+    <a href="http://www.hailanyue.com:8000/pay">支持新昌里购买更快更强的服务器</a>
+    <h5 align="center">版权所有@新昌里技术中心</h5>
+</div>

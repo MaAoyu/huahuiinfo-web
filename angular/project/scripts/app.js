@@ -9,6 +9,9 @@ app.config(function ($locationProvider,$httpProvider,$routeProvider) {
       .when('/tj', {
         templateUrl: '/angular/project/html/views/tj.html',
       })
+      .when('/mdh', {
+        templateUrl: '/angular/project/html/views/mdh.html',
+      })
       .when('/xcl', {
         templateUrl: '/angular/project/html/views/xcl.html',
       })
