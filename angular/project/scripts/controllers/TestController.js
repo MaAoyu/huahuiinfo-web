@@ -60,12 +60,12 @@ function TestController($scope, $http, $location) {
 
   $scope.record = function(name) {
     //console.log("getdata....:"+name);
-    var recordFlag = getCookie("isRecord");
+    var recordFlag = getCookie("isRecordsh");
     if (recordFlag) {
       alert('今日已签到过，请不要乱点哦！');
     }
     else{
-      setCookie("isRecord", 1, 0.5);
+      setCookie("isRecordsh", 1, 0.5);
       $http.get('http://106.14.37.7:8081/record?name='+name)
       .success(function (res) {
           //console.log(res);

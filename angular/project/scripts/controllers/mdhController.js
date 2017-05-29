@@ -49,12 +49,12 @@ function mdhController($scope, $http) {
     return '';
   }
   $scope.record = function(name) {
-    var recordFlag = getCookie("isRecord");
+    var recordFlag = getCookie("isRecordm");
     if (recordFlag) {
       alert('今日已签到过，请不要乱点哦！');
     }
     else{
-      setCookie("isRecord", 1, 0.5);
+      setCookie("isRecordm", 1, 0.5);
        $http.get('http://106.14.37.7:8081/record3?name='+name)
       .success(function (res) {
           getAllRecord();
