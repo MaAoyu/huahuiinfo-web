@@ -19,9 +19,9 @@ function TestController($scope, $http, $location) {
           $scope.peopleDatas = res;
           $scope.totalP = res.length;
           $scope.noPerson = '';
-          console.log(res.length);
+          //console.log(res.length);
           for(var i =0;i<res.length;i++){
-            console.log('xx');
+            //console.log('xx');
             if(res[i].flag == '没有'){
               $scope.noPerson = $scope.noPerson+res[i].name+'&';
             }
@@ -59,13 +59,13 @@ function TestController($scope, $http, $location) {
   }
 
   $scope.record = function(name) {
-    //console.log("getdata....:"+name);
-    var recordFlag = getCookie("isRecordsh");
+    //console.log("cookie....:"+document.cookie);
+    var recordFlag = getCookie("isRecordD6");
     if (recordFlag) {
       alert('今日已签到过，请不要乱点哦！');
     }
     else{
-      setCookie("isRecordsh", 1, 0.5);
+      setCookie("isRecordD6", 1, 0.5);
       $http.get('http://106.14.37.7:8081/record?name='+name)
       .success(function (res) {
           //console.log(res);
