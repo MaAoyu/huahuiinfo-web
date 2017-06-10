@@ -1,10 +1,5 @@
 function TestController($scope, $http, $location) {
   console.log("载入TestController");
-  // $scope.peopleDatas = [{ name: "阿米娜", id: 1, falg: "没有" },
-  // { name: "海录", id: 2, falg: "没有"  },
-  // { name: "马玉梅", id: 3, falg: "没有"  },
-  // { name: "马勇士", id: 4, falg: "没有"  },
-  // { name: "马素珍", id: 5, falg: "没有"  }];
   $scope.peopleDatas = [];
   $scope.noPerson = '';
   $scope.totalP = 0;

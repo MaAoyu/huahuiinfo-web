@@ -15,7 +15,7 @@ app.config(function ($locationProvider,$httpProvider,$routeProvider) {
       .when('/xcl', {
         templateUrl: '/angular/project/html/views/xcl.html',
       })
-      .when('/pay', {
+      .when('/sx', {
         templateUrl: '/angular/project/html/views/pay.html',
       });
       $locationProvider.html5Mode(true);
