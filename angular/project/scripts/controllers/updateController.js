@@ -2,7 +2,7 @@ function updateController($scope, $http) {
   console.log("载入updateController");
   $scope.xclPwd = '';
 
-  function updateRecord() {
+  $scope.updateRecord = function() {
     if ($scope.xclPwd == 'xclnb') {
       $http.get('http://106.14.37.7:8081/updateRecord')
         .success(function (res) {
