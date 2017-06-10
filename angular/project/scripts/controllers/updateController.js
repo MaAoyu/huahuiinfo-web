@@ -1,4 +1,5 @@
 function updateController($scope, $http) {
+  console.log("载入updateController");
   $scope.xclPwd = '';
 
   function updateRecord() {
